@@ -10,19 +10,19 @@ int printf_bin(va_list val)
 {
 	int flag = 0;
 	int cont = 0;
-	int t, x = 1, y;
-	unsigned int number = va_arg(val, unsigned int);
-	unsigned int g;
+	int t, a = 1, b;
+	unsigned int numb = va_arg(val, unsigned int);
+	unsigned int p;
 
 	for (t = 0; t < 32; t++)
 	{
-		g = ((x << (31 - t)) & number);
-		if (g >> (31 - t))
+		p = ((a << (31 - t)) & numb);
+		if (p >> (31 - t))
 			flag = 1;
 		if (flag)
 		{
-			y = g >> (31 - t);
-			_putchar(y + 48);
+			b = p >> (31 - t);
+			_putchar(b + 48);
 			cont++;
 		}
 	}
