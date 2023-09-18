@@ -3,30 +3,30 @@
 /**
  * _strlen - This Returns the lenght of a string
  * @s: it Type char pointer
- * Return: v.
+ * Return: c.
  */
 
 int _strlen(char *s)
 {
-	int v;
+	int c;
 
-	for (v = 0; s[v] != 0; v++)
+	for (c = 0; s[c] != 0; c++)
 		;
-	return (v);
+	return (c);
 
 }
 
 /**
  * _strlenc - strlenc function that is applied for constant char pointers
  * @s: Type char pointer
- * Return: v.
+ * Return: c.
  */
 
 int _strlenc(const char *s)
 {
-	int v;
+	int c;
 
-	for (v = 0; s[v] != 0; v++)
+	for (c = 0; s[c] != 0; c++)
 		;
-	return (v);
+	return (c);
 }
