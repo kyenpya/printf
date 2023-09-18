@@ -11,9 +11,9 @@
  * Return: printed no of chars
  */
 
-int handle_char(char c, buffer[], int flags, int width, int precision, int size)
+int handle_char(char c, char buffer[], int flags, int width, int precision, int size)
 {
-	char pad = '';
+	char pad = ' ';
 	int ind = 0;
 
 	UNUSED (precision);
@@ -52,7 +52,7 @@ int handle_char(char c, buffer[], int flags, int width, int precision, int size)
 int write_num(int is_neg, int ind, char buffer[], int flags, int width, int precision, int size)
 {
 	int len = BUFF_SIZE - ind - 1;
-	char exchar = 0, pad = '';
+	char exchar = 0, pad = ' ';
 
 	UNUSED(size);
 
@@ -63,7 +63,7 @@ int write_num(int is_neg, int ind, char buffer[], int flags, int width, int prec
 	else if (flags & F_PLUS)
 		exchar = '+';
 	else if (flags & F_SPACE)
-		exchar = '';
+		exchar = ' ';
 	return (write_nos(ind, buffer, flags, width, precision, len, pad, exchar));
 }
 
@@ -87,9 +87,9 @@ int write_nos(int ind, char buffer[], int flags, int width, int precision, int l
 	if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0' && width == 0)
 		return (0);
 	if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
-		buffer[ind] = pad = '';
+		buffer[ind] = pad = ' ';
 	if (precision > 0 && precision < len)
-		pad = '';
+		pad = ' ';
 	while (precision > len)
 		buffer[--ind] = '0', len++;
 	if (exchar != 0)
@@ -99,13 +99,13 @@ int write_nos(int ind, char buffer[], int flags, int width, int precision, int l
 		for (i = 1; i < width - len + 1; i++)
 			buffer[i] = pad;
 		buffer[i] = '\0';
-		if (flags & F_MINUS && pad == '')
+		if (flags & F_MINUS && pad == ' ')
 		{
 			if (exchar)
 				buffer[--ind] = exchar;
 			return (write(1, &buffer[ind], len) + write(1, &buffer[1], i - 1));
 		}
-		else if (!(flags & F_MINUS) && pad == '')
+		else if (!(flags & F_MINUS) && pad == ' ')
 		{
 			if (exchar)
 				buffer[--ind] = exchar;
@@ -115,7 +115,7 @@ int write_nos(int ind, char buffer[], int flags, int width, int precision, int l
 		{
 			if (exchar)
 				buffer[--pad_st] = exchar;
-			return (write(1, &buffer[pad_st], i - pad_st) + write(1, &buffer[ind], len - (1 - pad-st)));
+			return (write(1, &buffer[pad_st], i - pad_st) + write(1, &buffer[ind], len - (1 - pad_st)));
 		}
 	}
 	if (exchar)
