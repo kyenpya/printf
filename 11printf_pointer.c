@@ -8,14 +8,14 @@
 
 int printf_pointer(va_list val)
 {
-	void *r;
+	void *p;
 	char *s = "(nil)";
 	long int y;
 	int x;
 	int g;
 
-	r = va_arg(val, void*);
-	if (r == NULL)
+	p = va_arg(val, void*);
+	if (p == NULL)
 	{
 		for (g = 0; s[g] != '\0'; g++)
 		{
@@ -24,7 +24,7 @@ int printf_pointer(va_list val)
 		return (g);
 	}
 
-	y = (unsigned long int)r;
+	y = (unsigned long int)p;
 	_putchar('0');
 	_putchar('x');
 	x = printf_hex_aux(y);
