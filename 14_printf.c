@@ -1,20 +1,19 @@
 #include "main.h"
-
 /**
- * print_string - prints a string
+ * printf_string - this prints a string
  * @val: argument
- * Return: string length
+ * Return: lenght of string.
  */
 
-int print_string(va_list val)
+int printf_string(va_list val)
 {
 	char *s;
-	int len, t;
+	int t, len;
 
 	s = va_arg(val, char *);
 	if (s == NULL)
 	{
-		s + "(null)";
+		s = "(null)";
 		len = _strlen(s);
 		for (t = 0; t < len; t++)
 			_putchar(s[t]);

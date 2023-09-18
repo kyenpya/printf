@@ -2,11 +2,11 @@
 
 /**
  * printf_hex_aux - This prints an hexgecimal number.
- * @num:arguments.
+ * @numb:arguments.
  * Return: counter.
  */
 
-int printf_hex_aux(unsigned long int num)
+int printf_hex_aux(unsigned long int numb)
 {
 	long int t;
 	long int *array;
