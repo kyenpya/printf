@@ -57,8 +57,8 @@ int print_pointer(va_list types, char buffer[], int flags, int width, int precis
 
 int get_flags(const char *format, int *g);
 int get_width(const char *format, int *t, va_list list);
-int get_precision(const char *format, int *t, va_list list);
-int get_size(const char *format, int *g);
+int cal_precision(const char *format, int *t, va_list list);
+int cal_size(const char *format, int *g);
 
 int print_reverse(va_list types, char buffer[], int flags, int width, int precision, int size);
 
